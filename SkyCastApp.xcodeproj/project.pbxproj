@@ -12,6 +12,7 @@
 		3EBC82672C3EBC5600BAADC8 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBC82662C3EBC5600BAADC8 /* WeatherViewController.swift */; };
 		3EBC826C2C3EBC5800BAADC8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3EBC826B2C3EBC5800BAADC8 /* Assets.xcassets */; };
 		3EBC826F2C3EBC5800BAADC8 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 3EBC826E2C3EBC5800BAADC8 /* Base */; };
+		3EBC827A2C3EC0BE00BAADC8 /* WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBC82792C3EC0BE00BAADC8 /* WeatherView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		3EBC826B2C3EBC5800BAADC8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3EBC826E2C3EBC5800BAADC8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3EBC82702C3EBC5800BAADC8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3EBC82792C3EC0BE00BAADC8 /* WeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 		3EBC82612C3EBC5600BAADC8 /* SkyCastApp */ = {
 			isa = PBXGroup;
 			children = (
+				3EBC82782C3EC0A600BAADC8 /* Views */,
 				3EBC82772C3EBD4C00BAADC8 /* Controllers */,
 				3EBC82762C3EBC9400BAADC8 /* Files */,
 				3EBC82622C3EBC5600BAADC8 /* AppDelegate.swift */,
@@ -78,6 +81,14 @@
 			children = (
 			);
 			name = Controllers;
+			sourceTree = "<group>";
+		};
+		3EBC82782C3EC0A600BAADC8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3EBC82792C3EC0BE00BAADC8 /* WeatherView.swift */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -153,6 +164,7 @@
 				3EBC82672C3EBC5600BAADC8 /* WeatherViewController.swift in Sources */,
 				3EBC82632C3EBC5600BAADC8 /* AppDelegate.swift in Sources */,
 				3EBC82652C3EBC5600BAADC8 /* SceneDelegate.swift in Sources */,
+				3EBC827A2C3EC0BE00BAADC8 /* WeatherView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
