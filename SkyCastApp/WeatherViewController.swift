@@ -7,9 +7,16 @@
 
 import UIKit
 
+private let reuseIdentifier = "ForecastCell"
+
 class WeatherViewController: UIViewController {
         //MARK: -PROPERTIES
     let weatherConditions = ["Sunny", "Windy", "Cloudy", "Hurricane"]
+    var mockData: [mock] = [mock(date: "01/01/01", temperature: 5.0, description: "Cold"),
+                                mock(date: "02/02/02", temperature: 10.0, description: "Cool"),
+                                mock(date: "03/03/03", temperature: 25.0, description: "Hot"),
+                                mock(date: "04/04/04", temperature: 40.0, description: "Burning")
+    ]
     private let weatherView = WeatherView()
     private let tableView = UITableView()
     //MARK: -LIFECYCLE
@@ -29,6 +36,7 @@ class WeatherViewController: UIViewController {
         
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.register(ForecastTableViewCell.self, forCellReuseIdentifier: "ForecastCell")
         
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: weatherView.weatherStackView.bottomAnchor, constant: 16),
@@ -49,12 +57,13 @@ extension WeatherViewController: UITableViewDelegate {
 //MARK: -UITABLEVIEWDATASOURCE
 extension WeatherViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return weatherConditions.count
+        return mockData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        cell.textLabel?.text = weatherConditions[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! ForecastTableViewCell
+        let data = mockData[indexPath.row]
+        cell.configure(with: data)
         return cell
     }
     

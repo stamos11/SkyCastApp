@@ -15,4 +15,10 @@ struct Forecast: Decodable {
   
 }
 
+struct mock {
+    let date: String
+    let temperature: Double
+    let description: String
+}
+
 
