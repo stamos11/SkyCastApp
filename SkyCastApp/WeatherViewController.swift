@@ -15,7 +15,7 @@ class WeatherViewController: UIViewController {
     private let weatherView = WeatherView()
     private let tableView = UITableView()
     private var city: String = ""
-    private var isCelsius: Bool = true
+    private var isCelsius: Bool = false
     private var forecast: [Forecast] = []
     //MARK: -LIFECYCLE
     

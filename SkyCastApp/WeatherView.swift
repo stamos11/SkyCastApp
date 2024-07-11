@@ -38,7 +38,7 @@ class WeatherView: UIView {
 
 extension WeatherView {
     func style() {
-        
+        backgroundColor = .systemBackground
         cityTextField.translatesAutoresizingMaskIntoConstraints = false
         unitSwitch.translatesAutoresizingMaskIntoConstraints = false
         errorLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -46,28 +46,28 @@ extension WeatherView {
         
         
         cityTextField.placeholder = "Enter city name!"
+        cityTextField.borderStyle = .roundedRect
+        cityTextField.backgroundColor = .secondarySystemBackground
+        cityTextField.layer.cornerRadius = 8
+        cityTextField.layer.borderWidth = 1
+        cityTextField.layer.borderColor = UIColor.systemGray4.cgColor
+        cityTextField.font = .systemFont(ofSize: 16)
         
         errorLabel.font = .systemFont(ofSize: 16)
-        
-        errorLabel.textColor = .red
+        errorLabel.textColor = .systemRed
         errorLabel.numberOfLines = 2
         errorLabel.isHidden = true
         
-        temperatureLabel.font = .systemFont(ofSize: 16)
+        temperatureLabel.font = .systemFont(ofSize: 16, weight: .semibold)
         
+        humidityLabel.font = .systemFont(ofSize: 16, weight: .semibold)
         
-        humidityLabel.font = .systemFont(ofSize: 16)
+        windSpeedLabel.font = .systemFont(ofSize: 16, weight: .semibold)
         
-        
-        windSpeedLabel.font = .systemFont(ofSize: 16)
-        
-        
-        descriptionLabel.font = .systemFont(ofSize: 16)
-        
+        descriptionLabel.font = .systemFont(ofSize: 16, weight: .semibold)
         
         weatherStackView.axis = .vertical
         weatherStackView.spacing = 8
-        
         
     }
     func layout() {

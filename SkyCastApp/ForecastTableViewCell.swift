@@ -26,10 +26,14 @@ class ForecastTableViewCell: UITableViewCell {
     //MARK: -HELPERS
     private func setupCell() {
         
+        dateLabel.numberOfLines = 0
+        temperatureLabel.numberOfLines = 0
+        descriptionLabel.numberOfLines = 0
+        
         let stackView = UIStackView(arrangedSubviews: [dateLabel, temperatureLabel, descriptionLabel])
         stackView.axis = .horizontal
         stackView.alignment = .fill
-        stackView.distribution = .fillEqually
+        stackView.distribution = .equalSpacing
         stackView.spacing = 8
         
         contentView.addSubview(stackView)
@@ -45,8 +49,8 @@ class ForecastTableViewCell: UITableViewCell {
         
     }
     func configure(with forecast: Forecast) {
-        dateLabel.text = forecast.date
-        temperatureLabel.text = "\(forecast.temperature)"
-        descriptionLabel.text = forecast.description
+        dateLabel.text = "Date: \(forecast.date)"
+        temperatureLabel.text = "Temp: \(forecast.temperature)"
+        descriptionLabel.text = "Forecast: \(forecast.description)"
     }
 }
