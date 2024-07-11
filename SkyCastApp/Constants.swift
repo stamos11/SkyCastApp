@@ -11,4 +11,6 @@ struct Constants {
     
     static let apiKey = "102bcba3f41a442bb9f130216240907"
     static let baseUrl = "https://api.weatherapi.com/v1"
+    
+
 }

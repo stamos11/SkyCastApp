@@ -19,25 +19,30 @@ class WeatherService {
             completion(.failure(.dataNotFound))
             return
         }
+        print("URL String: \(urlString)")
         URLSession.shared.dataTask(with: url) { data, response, error in
             if let error = error {
+                print("Network Error: \(error)")
                 completion(.failure(.networkError))
             }
             guard let data = data else {
+                print("No Data Found")
                 completion(.failure(.dataNotFound))
                 return
             }
+            print("Data Received: \(data)")
             let decoder = JSONDecoder()
             do {
                 let response = try decoder.decode(WeatherResponse.self, from: data)
                 let weather = Weather(
-                    temperature: response.current.tempC,
+                    temperature: response.current.temp_c,
                     humidity: response.current.humidity,
-                    windSpeed: response.current.windKph,
+                    windSpeed: response.current.wind_kph,
                     description: response.current.condition.text
                     )
                 completion(.success(weather))
             } catch {
+                print("Data Received: \(data)")
                 completion(.failure(.decodingError))
             }
         }.resume()
@@ -65,7 +70,7 @@ class WeatherService {
                 let forecast = response.forecast.forecastday.map { day in
                     Forecast(
                         date: day.date,
-                        temperature: day.day.avgtempC,
+                        temperature: day.day.avgtemp_c,
                         description: day.day.condition.text
                     )
                 }

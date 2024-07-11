@@ -44,9 +44,9 @@ class ForecastTableViewCell: UITableViewCell {
         ])
         
     }
-    func configure(with mockData: mock) {
-        dateLabel.text = mockData.date
-        temperatureLabel.text = String(mockData.temperature)
-        descriptionLabel.text = mockData.description
+    func configure(with forecast: Forecast) {
+        dateLabel.text = forecast.date
+        temperatureLabel.text = "\(forecast.temperature)"
+        descriptionLabel.text = forecast.description
     }
 }

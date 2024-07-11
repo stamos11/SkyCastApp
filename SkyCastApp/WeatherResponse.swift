@@ -13,9 +13,9 @@ struct WeatherResponse: Decodable {
     let current: Current
 }
 struct Current: Decodable {
-    let tempC: Double
+    let temp_c: Double
     let humidity: Double
-    let windKph: Double
+    let wind_kph: Double
     let condition: Condition
 }
 struct Condition: Decodable {

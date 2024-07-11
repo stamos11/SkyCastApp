@@ -48,21 +48,22 @@ extension WeatherView {
         cityTextField.placeholder = "Enter city name!"
         
         errorLabel.font = .systemFont(ofSize: 16)
-        errorLabel.text = "The weather will be shit!"
+        
         errorLabel.textColor = .red
+        errorLabel.numberOfLines = 2
         errorLabel.isHidden = true
         
         temperatureLabel.font = .systemFont(ofSize: 16)
-        temperatureLabel.text = "40 Celcius"
+        
         
         humidityLabel.font = .systemFont(ofSize: 16)
-        humidityLabel.text = "Dry"
+        
         
         windSpeedLabel.font = .systemFont(ofSize: 16)
-        windSpeedLabel.text = "WIndy"
+        
         
         descriptionLabel.font = .systemFont(ofSize: 16)
-        descriptionLabel.text = "Stay insdide"
+        
         
         weatherStackView.axis = .vertical
         weatherStackView.spacing = 8
@@ -89,9 +90,9 @@ extension WeatherView {
             //UNITSWITCH CONSTRAINTS
             unitSwitch.topAnchor.constraint(equalTo: cityTextField.bottomAnchor, constant: 16),
             unitSwitch.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-        
-        
-        //ERRRORLABEL CONSTRAINTS
+            
+            
+            //ERRRORLABEL CONSTRAINTS
             errorLabel.topAnchor.constraint(equalTo: unitSwitch.bottomAnchor, constant: 16),
             errorLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             errorLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
@@ -101,6 +102,22 @@ extension WeatherView {
             weatherStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16)
         ])
     }
+    //UpdateUI
+    func updateWeatherUI(with weather: Weather, isCelsius: Bool) {
+        temperatureLabel.text = "\(weather.temperature) \(isCelsius ? "C" : "F")"
+        humidityLabel.text = "Humidity: \(weather.humidity)%"
+        windSpeedLabel.text = "Wind Speed: \(weather.windSpeed) km/h"
+        descriptionLabel.text = weather.description
+        
+        weatherStackView.isHidden = false
+        errorLabel.isHidden = true
+    }
+    //Error message
+    func showError(message: String) {
+           errorLabel.text = message
+           errorLabel.isHidden = false
+           weatherStackView.isHidden = true
+       }
 }
 
 

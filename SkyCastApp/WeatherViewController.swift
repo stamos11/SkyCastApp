@@ -11,14 +11,12 @@ private let reuseIdentifier = "ForecastCell"
 
 class WeatherViewController: UIViewController {
         //MARK: -PROPERTIES
-    let weatherConditions = ["Sunny", "Windy", "Cloudy", "Hurricane"]
-    var mockData: [mock] = [mock(date: "01/01/01", temperature: 5.0, description: "Cold"),
-                                mock(date: "02/02/02", temperature: 10.0, description: "Cool"),
-                                mock(date: "03/03/03", temperature: 25.0, description: "Hot"),
-                                mock(date: "04/04/04", temperature: 40.0, description: "Burning")
-    ]
+    private let weatherService = WeatherService()
     private let weatherView = WeatherView()
     private let tableView = UITableView()
+    private var city: String = ""
+    private var isCelsius: Bool = true
+    private var forecast: [Forecast] = []
     //MARK: -LIFECYCLE
     
     override func loadView() {
@@ -26,9 +24,11 @@ class WeatherViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupActions()
         setupTableView()
     }
     //MARK: -HELPERS
+    
     private func setupTableView() {
         view.addSubview(tableView)
         
@@ -47,7 +47,53 @@ class WeatherViewController: UIViewController {
         
     }
     //MARK: -ACTIONS
-
+    func setupActions() {
+        weatherView.cityTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingDidEndOnExit)
+        weatherView.unitSwitch.addTarget(self, action: #selector(switchPressed), for: .valueChanged)
+    }
+    @objc func textFieldDidChange() {
+        city = weatherView.cityTextField.text ?? ""
+        fetchWeather()
+        getForecast()
+    }
+    @objc func switchPressed() {
+        isCelsius = weatherView.unitSwitch.isOn
+        fetchWeather()
+        getForecast()
+    }
+    //MARK: API
+    private func fetchWeather() {
+        print("Fetching weather for city: \(city)")
+        weatherService.getWeather(for: city, isCelsius: isCelsius ) { [weak self] result  in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let weather):
+                    print("Weather data received: \(weather)")
+                    self?.weatherView.updateWeatherUI(with: weather, isCelsius: self?.isCelsius ?? true)
+                case .failure(let error):
+                    print("Failed to fetch weather: \(error)")
+                    self?.weatherView.showError(message: error.localizedDescription)
+                }
+            }
+            
+        }
+    }
+    private func getForecast() {
+        print("Fetching forecast for city: \(city)")
+        weatherService.getForecast(for: city, isCelsius: isCelsius) { [weak self]  result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let forecast):
+                    print("Forecast data received: \(forecast)")
+                    self?.forecast = forecast
+                    self?.tableView.reloadData()
+                case .failure(let error):
+                    print("Failed to fetch forecast: \(error)") 
+                    self?.weatherView.showError(message: error.localizedDescription)
+                }
+            }
+        }
+    }
 
 }
 //MARK: -UITABLEVIEWDELEGATE
@@ -57,12 +103,12 @@ extension WeatherViewController: UITableViewDelegate {
 //MARK: -UITABLEVIEWDATASOURCE
 extension WeatherViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return mockData.count
+        return forecast.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! ForecastTableViewCell
-        let data = mockData[indexPath.row]
+        let data = forecast[indexPath.row]
         cell.configure(with: data)
         return cell
     }

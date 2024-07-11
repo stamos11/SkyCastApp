@@ -18,6 +18,6 @@ struct ForecastDay: Decodable {
     let day: Day
 }
 struct Day: Decodable {
-    let avgtempC: Double
+    let avgtemp_c: Double
     let condition: Condition
 }
