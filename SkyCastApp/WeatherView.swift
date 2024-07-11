@@ -104,7 +104,8 @@ extension WeatherView {
     }
     //UpdateUI
     func updateWeatherUI(with weather: Weather, isCelsius: Bool) {
-        temperatureLabel.text = "\(weather.temperature) \(isCelsius ? "C" : "F")"
+        let temperature = isCelsius ? weather.temperature : celsiusToFarenheit(weather.temperature)
+        temperatureLabel.text = "\(formatTemperature(temperature)) \(isCelsius ? "C" : "F")"
         humidityLabel.text = "Humidity: \(weather.humidity)%"
         windSpeedLabel.text = "Wind Speed: \(weather.windSpeed) km/h"
         descriptionLabel.text = weather.description

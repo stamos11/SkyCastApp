@@ -9,7 +9,7 @@ import Foundation
 
 
 struct Weather: Decodable {
-    let temperature: Double
+    var temperature: Double
     let humidity: Double
     let windSpeed: Double
     let description: String

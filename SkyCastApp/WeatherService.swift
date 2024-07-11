@@ -22,15 +22,12 @@ class WeatherService {
         print("URL String: \(urlString)")
         URLSession.shared.dataTask(with: url) { data, response, error in
             if let error = error {
-                print("Network Error: \(error)")
                 completion(.failure(.networkError))
             }
             guard let data = data else {
-                print("No Data Found")
                 completion(.failure(.dataNotFound))
                 return
             }
-            print("Data Received: \(data)")
             let decoder = JSONDecoder()
             do {
                 let response = try decoder.decode(WeatherResponse.self, from: data)

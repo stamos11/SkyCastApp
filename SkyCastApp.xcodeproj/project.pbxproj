@@ -21,6 +21,7 @@
 		3EBC82862C3F16C000BAADC8 /* ForecastResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBC82852C3F16C000BAADC8 /* ForecastResponse.swift */; };
 		3EBC82882C3F17ED00BAADC8 /* ForecastTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBC82872C3F17ED00BAADC8 /* ForecastTableViewCell.swift */; };
 		3EBC828B2C3F232700BAADC8 /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBC828A2C3F232700BAADC8 /* WeatherService.swift */; };
+		3EF963322C406423001A6B69 /* CelsiusToFarenheit+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF963312C406423001A6B69 /* CelsiusToFarenheit+Util.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		3EBC82852C3F16C000BAADC8 /* ForecastResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastResponse.swift; sourceTree = "<group>"; };
 		3EBC82872C3F17ED00BAADC8 /* ForecastTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastTableViewCell.swift; sourceTree = "<group>"; };
 		3EBC828A2C3F232700BAADC8 /* WeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherService.swift; sourceTree = "<group>"; };
+		3EF963312C406423001A6B69 /* CelsiusToFarenheit+Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CelsiusToFarenheit+Util.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 		3EBC82612C3EBC5600BAADC8 /* SkyCastApp */ = {
 			isa = PBXGroup;
 			children = (
+				3EF963302C4063AA001A6B69 /* Utilities */,
 				3EB4B2762C3FFCAF00A40144 /* CustomError */,
 				3EBC82892C3F22EE00BAADC8 /* API */,
 				3EBC827E2C3F152D00BAADC8 /* Model */,
@@ -145,6 +148,14 @@
 				3EBC828A2C3F232700BAADC8 /* WeatherService.swift */,
 			);
 			name = API;
+			sourceTree = "<group>";
+		};
+		3EF963302C4063AA001A6B69 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				3EF963312C406423001A6B69 /* CelsiusToFarenheit+Util.swift */,
+			);
+			name = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -222,6 +233,7 @@
 				3EBC828B2C3F232700BAADC8 /* WeatherService.swift in Sources */,
 				3EBC82822C3F157600BAADC8 /* Forecast.swift in Sources */,
 				3EBC82632C3EBC5600BAADC8 /* AppDelegate.swift in Sources */,
+				3EF963322C406423001A6B69 /* CelsiusToFarenheit+Util.swift in Sources */,
 				3EBC82652C3EBC5600BAADC8 /* SceneDelegate.swift in Sources */,
 				3EBC82802C3F153C00BAADC8 /* Weather.swift in Sources */,
 				3EBC82882C3F17ED00BAADC8 /* ForecastTableViewCell.swift in Sources */,

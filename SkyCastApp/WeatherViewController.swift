@@ -61,17 +61,16 @@ class WeatherViewController: UIViewController {
         fetchWeather()
         getForecast()
     }
+  
+
     //MARK: API
     private func fetchWeather() {
-        print("Fetching weather for city: \(city)")
         weatherService.getWeather(for: city, isCelsius: isCelsius ) { [weak self] result  in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let weather):
-                    print("Weather data received: \(weather)")
                     self?.weatherView.updateWeatherUI(with: weather, isCelsius: self?.isCelsius ?? true)
                 case .failure(let error):
-                    print("Failed to fetch weather: \(error)")
                     self?.weatherView.showError(message: error.localizedDescription)
                 }
             }
@@ -79,16 +78,13 @@ class WeatherViewController: UIViewController {
         }
     }
     private func getForecast() {
-        print("Fetching forecast for city: \(city)")
         weatherService.getForecast(for: city, isCelsius: isCelsius) { [weak self]  result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let forecast):
-                    print("Forecast data received: \(forecast)")
                     self?.forecast = forecast
                     self?.tableView.reloadData()
                 case .failure(let error):
-                    print("Failed to fetch forecast: \(error)") 
                     self?.weatherView.showError(message: error.localizedDescription)
                 }
             }
