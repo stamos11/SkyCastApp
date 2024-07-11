@@ -70,6 +70,8 @@ class WeatherService {
                     )
                 }
                 completion(.success(forecast))
+            } catch {
+                completion(.failure(.decodingError))
             }
         }.resume()
     }
