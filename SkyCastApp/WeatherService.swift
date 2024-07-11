@@ -61,7 +61,7 @@ class WeatherService {
             }
             let decoder = JSONDecoder()
             do {
-                let response = decoder.decode(ForecastResponse.self, from: data)
+                let response =  try decoder.decode(ForecastResponse.self, from: data)
                 let forecast = response.forecast.forecastday.map { day in
                     Forecast(
                         date: day.date,
