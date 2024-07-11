@@ -47,15 +47,18 @@ class WeatherViewController: UIViewController {
         
     }
     //MARK: -ACTIONS
+    // Setup actions fo user interactions
     func setupActions() {
         weatherView.cityTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingDidEndOnExit)
         weatherView.unitSwitch.addTarget(self, action: #selector(switchPressed), for: .valueChanged)
     }
+    // Called when the text field Changes
     @objc func textFieldDidChange() {
         city = weatherView.cityTextField.text ?? ""
         fetchWeather()
         getForecast()
     }
+    // Called when the unit switch is pressed
     @objc func switchPressed() {
         isCelsius = weatherView.unitSwitch.isOn
         fetchWeather()
@@ -64,6 +67,7 @@ class WeatherViewController: UIViewController {
   
 
     //MARK: API
+    // Fetch weather data for the specified city
     private func fetchWeather() {
         weatherService.getWeather(for: city, isCelsius: isCelsius ) { [weak self] result  in
             DispatchQueue.main.async {
@@ -77,6 +81,7 @@ class WeatherViewController: UIViewController {
             
         }
     }
+    // Fetch forecast for the specified city
     private func getForecast() {
         weatherService.getForecast(for: city, isCelsius: isCelsius) { [weak self]  result in
             DispatchQueue.main.async {

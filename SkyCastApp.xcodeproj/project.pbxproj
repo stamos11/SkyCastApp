@@ -22,7 +22,18 @@
 		3EBC82882C3F17ED00BAADC8 /* ForecastTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBC82872C3F17ED00BAADC8 /* ForecastTableViewCell.swift */; };
 		3EBC828B2C3F232700BAADC8 /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBC828A2C3F232700BAADC8 /* WeatherService.swift */; };
 		3EF963322C406423001A6B69 /* CelsiusToFarenheit+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF963312C406423001A6B69 /* CelsiusToFarenheit+Util.swift */; };
+		3EF963412C406A31001A6B69 /* TemperatureConversionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF963402C406A31001A6B69 /* TemperatureConversionTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3EF9633B2C4068E5001A6B69 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3EBC82572C3EBC5600BAADC8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3EBC825E2C3EBC5600BAADC8;
+			remoteInfo = SkyCastApp;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		3EB4B2772C3FFCCA00A40144 /* WeatherError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherError.swift; sourceTree = "<group>"; };
@@ -42,10 +53,19 @@
 		3EBC82872C3F17ED00BAADC8 /* ForecastTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastTableViewCell.swift; sourceTree = "<group>"; };
 		3EBC828A2C3F232700BAADC8 /* WeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherService.swift; sourceTree = "<group>"; };
 		3EF963312C406423001A6B69 /* CelsiusToFarenheit+Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CelsiusToFarenheit+Util.swift"; sourceTree = "<group>"; };
+		3EF963372C4068E5001A6B69 /* SkyCastAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SkyCastAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3EF963402C406A31001A6B69 /* TemperatureConversionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureConversionTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		3EBC825C2C3EBC5600BAADC8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3EF963342C4068E5001A6B69 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -67,6 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				3EBC82612C3EBC5600BAADC8 /* SkyCastApp */,
+				3EF963382C4068E5001A6B69 /* SkyCastAppTests */,
 				3EBC82602C3EBC5600BAADC8 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -75,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				3EBC825F2C3EBC5600BAADC8 /* SkyCastApp.app */,
+				3EF963372C4068E5001A6B69 /* SkyCastAppTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -88,9 +110,9 @@
 				3EBC827E2C3F152D00BAADC8 /* Model */,
 				3EBC82782C3EC0A600BAADC8 /* Views */,
 				3EBC82772C3EBD4C00BAADC8 /* Controllers */,
+				3EBC82662C3EBC5600BAADC8 /* WeatherViewController.swift */,
 				3EBC82762C3EBC9400BAADC8 /* Files */,
 				3EBC82622C3EBC5600BAADC8 /* AppDelegate.swift */,
-				3EBC82662C3EBC5600BAADC8 /* WeatherViewController.swift */,
 				3EBC827D2C3F14C900BAADC8 /* Constants */,
 			);
 			path = SkyCastApp;
@@ -158,6 +180,14 @@
 			name = Utilities;
 			sourceTree = "<group>";
 		};
+		3EF963382C4068E5001A6B69 /* SkyCastAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				3EF963402C406A31001A6B69 /* TemperatureConversionTests.swift */,
+			);
+			path = SkyCastAppTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -178,6 +208,24 @@
 			productReference = 3EBC825F2C3EBC5600BAADC8 /* SkyCastApp.app */;
 			productType = "com.apple.product-type.application";
 		};
+		3EF963362C4068E5001A6B69 /* SkyCastAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3EF9633D2C4068E5001A6B69 /* Build configuration list for PBXNativeTarget "SkyCastAppTests" */;
+			buildPhases = (
+				3EF963332C4068E5001A6B69 /* Sources */,
+				3EF963342C4068E5001A6B69 /* Frameworks */,
+				3EF963352C4068E5001A6B69 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3EF9633C2C4068E5001A6B69 /* PBXTargetDependency */,
+			);
+			name = SkyCastAppTests;
+			productName = SkyCastAppTests;
+			productReference = 3EF963372C4068E5001A6B69 /* SkyCastAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -190,6 +238,10 @@
 				TargetAttributes = {
 					3EBC825E2C3EBC5600BAADC8 = {
 						CreatedOnToolsVersion = 15.4;
+					};
+					3EF963362C4068E5001A6B69 = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = 3EBC825E2C3EBC5600BAADC8;
 					};
 				};
 			};
@@ -207,6 +259,7 @@
 			projectRoot = "";
 			targets = (
 				3EBC825E2C3EBC5600BAADC8 /* SkyCastApp */,
+				3EF963362C4068E5001A6B69 /* SkyCastAppTests */,
 			);
 		};
 /* End PBXProject section */
@@ -218,6 +271,13 @@
 			files = (
 				3EBC826C2C3EBC5800BAADC8 /* Assets.xcassets in Resources */,
 				3EBC826F2C3EBC5800BAADC8 /* Base in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3EF963352C4068E5001A6B69 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,7 +304,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3EF963332C4068E5001A6B69 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3EF963412C406A31001A6B69 /* TemperatureConversionTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3EF9633C2C4068E5001A6B69 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3EBC825E2C3EBC5600BAADC8 /* SkyCastApp */;
+			targetProxy = 3EF9633B2C4068E5001A6B69 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		3EBC826D2C3EBC5800BAADC8 /* LaunchScreen.storyboard */ = {
@@ -429,6 +505,40 @@
 			};
 			name = Release;
 		};
+		3EF9633E2C4068E5001A6B69 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nicholasStamoulis.SkyCastAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SkyCastApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SkyCastApp";
+			};
+			name = Debug;
+		};
+		3EF9633F2C4068E5001A6B69 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nicholasStamoulis.SkyCastAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SkyCastApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SkyCastApp";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -446,6 +556,15 @@
 			buildConfigurations = (
 				3EBC82742C3EBC5800BAADC8 /* Debug */,
 				3EBC82752C3EBC5800BAADC8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3EF9633D2C4068E5001A6B69 /* Build configuration list for PBXNativeTarget "SkyCastAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3EF9633E2C4068E5001A6B69 /* Debug */,
+				3EF9633F2C4068E5001A6B69 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

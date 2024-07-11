@@ -102,7 +102,7 @@ extension WeatherView {
             weatherStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16)
         ])
     }
-    //UpdateUI
+    //UpdateUI with the weather data
     func updateWeatherUI(with weather: Weather, isCelsius: Bool) {
         let temperature = isCelsius ? weather.temperature : celsiusToFarenheit(weather.temperature)
         temperatureLabel.text = "\(formatTemperature(temperature)) \(isCelsius ? "C" : "F")"
