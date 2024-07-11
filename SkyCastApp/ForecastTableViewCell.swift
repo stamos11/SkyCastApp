@@ -13,6 +13,9 @@ class ForecastTableViewCell: UITableViewCell {
     private let dateLabel = UILabel()
     private let temperatureLabel = UILabel()
     private let descriptionLabel = UILabel()
+    private let dateIcon = UIImageView(image: UIImage(systemName: "calendar"))
+    private let temperatureIcon = UIImageView(image: UIImage(systemName: "thermometer"))
+    private let descriptionIcon = UIImageView(image: UIImage(systemName: "cloud.sun"))
     
     //MARK: -LIFECYCLE
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -26,13 +29,28 @@ class ForecastTableViewCell: UITableViewCell {
     //MARK: -HELPERS
     private func setupCell() {
         
-        dateLabel.numberOfLines = 0
-        temperatureLabel.numberOfLines = 0
-        descriptionLabel.numberOfLines = 0
+//        dateLabel.numberOfLines = 0
+//        temperatureLabel.numberOfLines = 0
+//        descriptionLabel.numberOfLines = 0
         
-        let stackView = UIStackView(arrangedSubviews: [dateLabel, temperatureLabel, descriptionLabel])
-        stackView.axis = .horizontal
-        stackView.alignment = .fill
+        let dateStack = UIStackView(arrangedSubviews: [dateIcon, dateLabel])
+                dateStack.axis = .horizontal
+                dateStack.spacing = 8
+                dateStack.alignment = .center
+                
+                let temperatureStack = UIStackView(arrangedSubviews: [temperatureIcon, temperatureLabel])
+                temperatureStack.axis = .horizontal
+                temperatureStack.spacing = 8
+                temperatureStack.alignment = .center
+                
+                let descriptionStack = UIStackView(arrangedSubviews: [descriptionIcon, descriptionLabel])
+                descriptionStack.axis = .horizontal
+                descriptionStack.spacing = 8
+                descriptionStack.alignment = .center
+        
+        let stackView = UIStackView(arrangedSubviews: [dateStack, temperatureStack, descriptionStack])
+        stackView.axis = .vertical
+        stackView.alignment = .leading
         stackView.distribution = .equalSpacing
         stackView.spacing = 8
         
